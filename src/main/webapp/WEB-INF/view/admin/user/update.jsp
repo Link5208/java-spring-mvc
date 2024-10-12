@@ -6,7 +6,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Create users</title>
+                <title>Update users</title>
 
 
                 <!-- Latest compiled and minified CSS -->
@@ -24,18 +24,18 @@
                     <div class="row">
 
                         <div class="col-md-6 col-12 mx-auto">
-                            <h3>Create a user</h3>
-                            <form:form method="post" action="/admin/user/create" modelAttribute="newUser">
+                            <h3>Update a user</h3>
+                            <form:form method="post" action="/admin/user/update" modelAttribute="newUser">
+                                <!-- ID -->
+                                <div class="mb-3" style="display: none;">
+                                    <label class="form-label">ID:</label>
+                                    <form:input type="text" class="form-control" path="id" />
+                                </div>
+
                                 <!-- Email -->
                                 <div class="mb-3">
                                     <label class="form-label">Email address</label>
-                                    <form:input type="email" class="form-control" path="email" />
-                                </div>
-
-                                <!-- Password -->
-                                <div class="mb-3">
-                                    <label class="form-label">Password</label>
-                                    <form:input type="password" class="form-control" path="password" />
+                                    <form:input type="email" class="form-control" path="email" disabled="true" />
                                 </div>
 
                                 <!-- Phone number -->
@@ -56,7 +56,7 @@
                                     <form:input type="text" class="form-control" path="address" />
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-warning">Update</button>
                             </form:form>
                         </div>
 
