@@ -48,7 +48,7 @@
                                             <h3>Create a user</h3>
                                             <hr />
                                             <form:form method="post" action="/admin/user/create"
-                                                modelAttribute="newUser" class="row">
+                                                modelAttribute="newUser" class="row" enctype="multipart/form-data">
 
 
                                                 <!-- Email -->
@@ -84,17 +84,17 @@
 
                                                 <div class="col-md-6 col-12 mb-3">
                                                     <label class="form-label">Role:</label>
-                                                    <select class="form-select ">
-                                                        <option value="ADMIN">ADMIN</option>
-                                                        <option value="USER">USER</option>
+                                                    <form:select class="form-select" path="role.name">
+                                                        <form:option value="ADMIN">ADMIN</form:option>
+                                                        <form:option value="USER">USER</form:option>
 
-                                                    </select>
+                                                    </form:select>
 
                                                 </div>
                                                 <div class="col-md-6 mb-3 col-12">
                                                     <label for="avatarFile" class="form-label">Avatar:</label>
                                                     <input class="form-control" type="file" id="avatarFile"
-                                                        accept=".png, .jpg, .jpeg">
+                                                        accept=".png, .jpg, .jpeg" name="hoidanitFile" />
                                                 </div>
                                                 <div class="col-12 mb-3">
                                                     <img style="max-height: 250px; display: none;" alt="avatar preview "
