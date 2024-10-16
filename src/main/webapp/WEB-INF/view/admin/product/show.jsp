@@ -30,7 +30,52 @@
                             </ol>
 
 
-                            <div>Table products</div>
+                            <div class="mt-5">
+                                <div class="row">
+                                    <div class="col-12 mx-auto">
+
+                                        <div class="d-flex justify-content-between">
+                                            <h3>Table products</h3>
+                                            <a class="btn btn-primary" href="/admin/product/create">Create
+                                                a product</a>
+                                        </div>
+
+                                        <hr />
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Email</th>
+                                                    <th>Full Name</th>
+                                                    <th>Role</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- <c:forEach var="user" items="${users1}">
+                                                    <tr>
+                                                        <th>${user.id}</th>
+                                                        <td>${user.email}</td>
+                                                        <td>${user.fullName}</td>
+                                                        <td>${user.role.name}</td>
+                                                        <td>
+                                                            <a href="/admin/user/${user.id}" type="button"
+                                                                class="btn btn-success">View</a>
+                                                            <a href="/admin/user/update/${user.id}" type="button"
+                                                                class="btn btn-warning mx-2">Update</a>
+                                                            <a href="/admin/user/delete/${user.id}" type="button"
+                                                                class="btn btn-danger">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                </c:forEach> -->
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </main>
                     <jsp:include page="../layout/footer.jsp" />
