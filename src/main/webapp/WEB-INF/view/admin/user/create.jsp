@@ -54,13 +54,21 @@
                                                 <!-- Email -->
                                                 <div class=" col-md-6 col-12 mb-3">
                                                     <label class="form-label">Email address</label>
-                                                    <form:input type="email" class="form-control" path="email" />
+                                                    <form:input type="email" class="form-control is-invalid"
+                                                        path="email" />
+                                                    <form:errors path="email" cssClass="invalid-feedback" />
                                                 </div>
 
                                                 <!-- Password -->
                                                 <div class=" col-md-6 col-12 mb-3">
+                                                    <c:set var="errorPassword">
+                                                        <form:errors path="password" cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <label class="form-label">Password</label>
-                                                    <form:input type="password" class="form-control" path="password" />
+                                                    <form:input type="password"
+                                                        class="form-control ${not empty errorPassword ? 'is-invalid' : ''}"
+                                                        path="password" />
+                                                    ${errorPassword}
                                                 </div>
 
 
