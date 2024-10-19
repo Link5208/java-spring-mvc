@@ -128,18 +128,3 @@ public class UserController {
         return "redirect:/admin/user";
     }
 }
-
-// @RestController
-// public class UserController {
-
-// private UserService userService;
-
-// public UserController(UserService userService) {
-// this.userService = userService;
-// }
-
-// @GetMapping("")
-// public String getHomePage() {
-// return this.userService.handleHello();
-// }
-// }
