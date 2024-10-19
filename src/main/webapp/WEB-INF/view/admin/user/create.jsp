@@ -53,10 +53,14 @@
 
                                                 <!-- Email -->
                                                 <div class=" col-md-6 col-12 mb-3">
+                                                    <c:set var="errorEmail">
+                                                        <form:errors path="email" cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <label class="form-label">Email address</label>
-                                                    <form:input type="email" class="form-control is-invalid"
+                                                    <form:input type="email"
+                                                        class="form-control ${not empty errorEmail ? 'is-invalid' : ''}"
                                                         path="email" />
-                                                    <form:errors path="email" cssClass="invalid-feedback" />
+                                                    ${errorEmail}
                                                 </div>
 
                                                 <!-- Password -->
