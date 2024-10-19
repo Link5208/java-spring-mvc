@@ -114,7 +114,7 @@
                                                                     <p style="font-size: 15px;"
                                                                         class="text-dark fw-bold mb-3 text-center w-100">
                                                                         <fmt:formatNumber type="number">
-                                                                            ${product.price}</fmt:formatNumber>
+                                                                            ${product.price}</fmt:formatNumber> đ
                                                                     </p>
                                                                     <a href="#"
                                                                         class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
