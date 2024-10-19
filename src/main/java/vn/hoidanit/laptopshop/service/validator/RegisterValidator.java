@@ -23,7 +23,7 @@ public class RegisterValidator implements ConstraintValidator<RegisterChecked, R
         // Check if password fields match
         if (!user.getPassword().equals(user.getConfirmPassword())) {
             context.buildConstraintViolationWithTemplate("Passwords must match")
-                    .addPropertyNode("confirmPassword")
+                    .addPropertyNode("password")
                     .addConstraintViolation()
                     .disableDefaultConstraintViolation();
             valid = false;

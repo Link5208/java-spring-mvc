@@ -6,7 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -44,14 +44,14 @@ public class HomePageController {
     @GetMapping("/register")
     public String getRegisterPage(Model model) {
         model.addAttribute("registerUser", new RegisterDTO());
-        return "/client/auth/register";
+        return "client/auth/register";
     }
 
     @PostMapping("/register")
     public String handleRegister(@ModelAttribute("registerUser") @Valid RegisterDTO registerDTO,
             BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "/client/auth/register";
+            return "client/auth/register";
         }
         User user = this.userService.registerDTOtoUser(registerDTO);
         String hashPassword = this.passwordEncoder.encode(user.getPassword());
@@ -67,7 +67,7 @@ public class HomePageController {
     @GetMapping("/login")
     public String getLoginPage(Model model) {
 
-        return "/client/auth/login";
+        return "client/auth/login";
     }
 
 }
