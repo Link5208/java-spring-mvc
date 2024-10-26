@@ -3,6 +3,7 @@ package vn.hoidanit.laptopshop.config;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+
 import vn.hoidanit.laptopshop.domain.User;
+
 import vn.hoidanit.laptopshop.service.UserService;
 
 public class CustomSuccessHandler implements AuthenticationSuccessHandler {
@@ -52,12 +55,18 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         String email = authentication.getName();
         // query user
         User user = this.userService.getUserByEmail(email);
+
         if (user != null) {
+
             session.setAttribute("fullName", user.getFullName());
             session.setAttribute("avatar", user.getAvatar());
             session.setAttribute("id", user.getId());
             session.setAttribute("email", user.getEmail());
+            int sum = user.getCart().getSum();
+            session.setAttribute("sum", sum);
+
         }
+
     }
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
