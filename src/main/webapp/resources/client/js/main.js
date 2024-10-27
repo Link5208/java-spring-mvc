@@ -169,7 +169,7 @@
         const price = input.attr("data-cart-detail-price");
         const id = input.attr("data-cart-detail-id");
 
-        const priceElement = $(`p[data-cart-detail-id ='${id}']`);
+        const priceElement = $(`p[data-cart-detail-id='${id}']`);
         if (priceElement) {
             const newPrice = +price * newVal;
             priceElement.text(formatCurrency(newPrice.toFixed(2)) + "đ")
@@ -201,15 +201,15 @@
 
     });
 
-    // function formatCurrency(value) {
-    //     const formatter = new Intl.NumberFormat('vi-VN', {
-    //         style: 'decimal',
-    //         minimumFractionDigits: 0,
-    //     });
-    //     let formatted = formatter.format(value);
-    //     formatted = formatted.replace(/\./g, ',');
-    //     return formatted;
-    // }
+    function formatCurrency(value) {
+        const formatter = new Intl.NumberFormat('vi-VN', {
+            style: 'decimal',
+            minimumFractionDigits: 0,
+        });
+        let formatted = formatter.format(value);
+        formatted = formatted.replace(/\./g, ',');
+        return formatted;
+    }
 
 })(jQuery);
 
