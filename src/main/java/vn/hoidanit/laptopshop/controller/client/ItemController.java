@@ -12,12 +12,15 @@ import vn.hoidanit.laptopshop.domain.Cart;
 import vn.hoidanit.laptopshop.domain.CartDetail;
 import vn.hoidanit.laptopshop.domain.Product;
 import vn.hoidanit.laptopshop.domain.User;
+import vn.hoidanit.laptopshop.repository.CartDetailRepository;
+import vn.hoidanit.laptopshop.repository.CartRepository;
 import vn.hoidanit.laptopshop.service.ProductService;
+import vn.hoidanit.laptopshop.service.UserService;
+
 import org.springframework.web.bind.annotation.PostMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -25,8 +28,10 @@ public class ItemController {
 
     private final ProductService productService;
 
-    public ItemController(ProductService productService) {
+    public ItemController(ProductService productService, CartDetailRepository cartDetailRepository,
+            CartRepository cartRepository, UserService userService) {
         this.productService = productService;
+
     }
 
     @GetMapping("/product/{id}")
@@ -110,7 +115,18 @@ public class ItemController {
             @RequestParam("receiverPhone") String receiverPhone) {
         HttpSession session = request.getSession(false);
 
-        return "redirect:/";
+        User currentUser = new User();
+        long id = (long) session.getAttribute("id");
+        currentUser.setId(id);
+
+        this.productService.handlePlaceOrder(currentUser, session, receiverName, receiverAddress, receiverPhone);
+
+        return "redirect:/thanks";
+    }
+
+    @GetMapping("/thanks")
+    public String getThankYouPage(Model model) {
+        return "client/cart/thanks";
     }
 
 }
