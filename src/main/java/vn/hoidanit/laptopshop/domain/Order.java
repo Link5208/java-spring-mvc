@@ -30,7 +30,7 @@ public class Order {
     private User user;
 
     @OneToMany(mappedBy = "order")
-    List<OrderDetail> orderDetails;
+    private List<OrderDetail> orderDetails;
 
     public long getId() {
         return id;
@@ -91,6 +91,14 @@ public class Order {
     @Override
     public String toString() {
         return "Order [id=" + id + ", totalPrice=" + totalPrice + "]";
+    }
+
+    public List<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
     }
 
 }
