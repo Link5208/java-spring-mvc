@@ -96,7 +96,7 @@
                                         <form action="/add-product-from-view-detail" method="post"
                                             modelAttribute="product">
                                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                                            <input class="form-control d-none" type="num" value="${product.id}"
+                                            <input class="form-control d-none" type="text" value="${product.id}"
                                                 name="id" />
 
                                             <input class="form-control d-none" type="text" name="quantity"
