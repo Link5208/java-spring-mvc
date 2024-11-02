@@ -58,7 +58,7 @@
                                                                     alt="Product image">
                                                             </td>
                                                             <td><a
-                                                                    href="/product/${orderDetail.product.id}">${orderDetail.product.name}</a>
+                                                                    href="/admin/product/${orderDetail.product.id}">${orderDetail.product.name}</a>
                                                             </td>
                                                             <td>
                                                                 <fmt:formatNumber type="number"

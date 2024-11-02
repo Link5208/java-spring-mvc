@@ -35,7 +35,18 @@ public class ProductController {
 
     @GetMapping("/admin/product")
     public String getProduct(Model model,
-            @RequestParam("page") int page) {
+            @RequestParam("page") Optional<String> pageOptional) {
+        int page = 1;
+        try {
+            if (pageOptional.isPresent()) {
+                page = Integer.parseInt(pageOptional.get());
+            } else {
+
+            }
+        } catch (NumberFormatException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         Pageable pageable = PageRequest.of(page - 1, 2);
         Page<Product> prs = this.productService.fetchProducts(pageable);
         List<Product> listProducts = prs.getContent();
@@ -79,7 +90,7 @@ public class ProductController {
         model.addAttribute("id", id);
         Product product = this.productService.fetchProductById(id).get();
         model.addAttribute("product", product);
-        return "/admin/product/detail";
+        return "admin/product/detail";
     }
 
     @GetMapping("/admin/product/update/{id}")
