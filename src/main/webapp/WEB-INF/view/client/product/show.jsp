@@ -177,12 +177,12 @@
 
                                     </div>
 
-                                    <div class="col-12" id="btnFilter">
+                                    <div class="col-12">
                                         <h5 class="mb-3">Sắp xếp</h5>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="radio-sort" id="sort-1"
                                                 value="gia-tang-dan">
-                                            <label class="form-check-label" for="inlineRadio1">Giá tăng dần</label>
+                                            <label class="form-check-label" for="sort-1">Giá tăng dần</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="radio-sort" id="sort-2"
