@@ -48,6 +48,10 @@ public class ProductService {
         return this.productRepository.save(pr);
     }
 
+    public List<Product> fetchProducts() {
+        return this.productRepository.findAll();
+    }
+
     public Page<Product> fetchProducts(Pageable page) {
         return this.productRepository.findAll(page);
     }
