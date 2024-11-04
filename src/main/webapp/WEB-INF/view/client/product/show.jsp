@@ -209,7 +209,7 @@
 
                                 <div class="row g-4">
                                     <c:if test="${totalPages == 0}">
-                                        <div>KhÔng thấy sản phẩm</div>
+                                        <div>Không tìm thấy sản phẩm</div>
                                     </c:if>
                                     <c:forEach var="product" items="${products}">
 
@@ -251,16 +251,16 @@
                                     </c:forEach>
                                     <c:if test="${totalPages > 0}">
                                         <div class="pagination d-flex justify-content-center mt-5">
-                                            <a href="/products?page=${currentPage-1}"
+                                            <a href="/products?page=${currentPage-1}${queryString}"
                                                 class="rounded page-link ${1 eq currentPage ? 'd-none' : ''}">&laquo;</a>
 
                                             <c:forEach begin="0" end="${totalPages-1}" varStatus="loop">
 
                                                 <a class="page-link rounded ${(loop.index + 1) eq currentPage ? 'active' : ''}"
-                                                    href="/products?page=${loop.index+1}">${loop.index+1}</a>
+                                                    href="/products?page=${loop.index+1}${queryString}">${loop.index+1}</a>
 
                                             </c:forEach>
-                                            <a href="/products?page=${currentPage+1}"
+                                            <a href="/products?page=${currentPage+1}${queryString}"
                                                 class="rounded page-link ${totalPages eq currentPage ? 'd-none' : ''}">&raquo;</a>
                                         </div>
 
